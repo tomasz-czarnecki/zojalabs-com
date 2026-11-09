@@ -2,7 +2,8 @@
 
 Run: uv run tools/serve.py
 Same as `python -m http.server`, but with a deeper listen queue: the stdlib default
-of 5 resets connections when the page requests its ~15 images at once.
+of 5 resets connections when the page requests its ~15 images at once. It also sends
+`Cache-Control: no-cache`, so a reload always picks up edited CSS and JS.
 """
 
 import socket
@@ -25,8 +26,16 @@ class Server(ThreadingHTTPServer):
         super().server_bind()
 
 
+class Handler(SimpleHTTPRequestHandler):
+    """Static files that the browser must revalidate on every load."""
+
+    def end_headers(self) -> None:
+        self.send_header("Cache-Control", "no-cache")
+        super().end_headers()
+
+
 def main() -> None:
-    handler = partial(SimpleHTTPRequestHandler, directory=ROOT)
+    handler = partial(Handler, directory=ROOT)
     with Server(("::", PORT), handler) as httpd:
         print(f"Serving http://localhost:{PORT}", flush=True)
         httpd.serve_forever()
