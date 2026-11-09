@@ -1,0 +1,26 @@
+<!-- Nav markup. Put it first in <body>, load nav.css and nav.js, and on each page:
+     set the page name in .nav__here and aria-current="page" on that page's two links. -->
+<header class="nav">
+  <div class="nav__bar">
+    <a class="nav__logo" href="/"><img src="logo/zoja-ai-white.svg" alt="zoja.ai"></a>
+    <p class="nav__here">Home</p>
+    <nav class="nav__links" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/marketplace/">Marketplace</a>
+      <a href="mailto:hello@zoja.ai">Contact</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+    </button>
+  </div>
+  <div class="nav__panel" id="nav-panel">
+    <nav aria-label="Menu">
+      <ul class="nav__panel-list">
+        <li class="nav__panel-item" style="--i: 0"><a class="nav__panel-link" href="/" aria-current="page"><span class="nav__panel-index">1</span>Home</a></li>
+        <li class="nav__panel-item" style="--i: 1"><a class="nav__panel-link" href="/marketplace/"><span class="nav__panel-index">2</span>Marketplace</a></li>
+        <li class="nav__panel-item" style="--i: 2"><a class="nav__panel-link" href="mailto:hello@zoja.ai"><span class="nav__panel-index">3</span>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

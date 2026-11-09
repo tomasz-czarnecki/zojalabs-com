@@ -2,10 +2,22 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "runway",
+      "name": "web",
       "runtimeExecutable": "uv",
-      "runtimeArgs": ["run", "--directory", "web", "tools/serve.py"],
+      "runtimeArgs": ["run", "--directory", "apps/web", "tools/serve.py"],
       "port": 8765
+    },
+    {
+      "name": "studio",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "python", "-m", "http.server", "8766", "--directory", "apps/studio"],
+      "port": 8766
+    },
+    {
+      "name": "ui",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "python", "-m", "http.server", "8767", "--directory", "packages/ui"],
+      "port": 8767
     }
   ]
 }

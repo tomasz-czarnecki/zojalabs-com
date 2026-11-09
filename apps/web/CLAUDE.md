@@ -34,11 +34,11 @@ The case study only counts as commercial proof once one post sells one product (
 
 ### Where it gets built
 
-Everything stays in this `web/` folder as static pages, same stack as today.
+The website stays in this `apps/web/` folder as static pages, same stack as today. The studio is a separate app in `apps/studio/` (app.zoja.ai, see `apps/studio/CLAUDE.md`).
 
 - `lily/` (planned): the case-study page. Persona bible on top, then the Dior campaign as plan, shot spec and result. It links from the home page as the case study.
-- `marketplace/` (planned): the free AI influencer listing, filling the existing `#` Marketplace nav link. Lily is listing number one.
-- `studio/` (later): the interactive persona and campaign tool, only after the Lily page exists and shows the planning layer. If it only shows pretty images it is a persona-making service, not a studio.
+- `marketplace/` (planned): the free AI influencer listing, filling the existing `#` Marketplace nav link. Lily is listing number one. It starts here as a static page and moves into `apps/studio/` once creators sign up themselves, since that needs accounts and a database.
+- Studio (later, in `apps/studio/`): the interactive persona and campaign tool, only after the Lily page exists and shows the planning layer. If it only shows pretty images it is a persona-making service, not a studio.
 - Lily's reference images go in `assets/lily/`. They are not in the repo yet.
 
 ### Rules for this direction
@@ -52,13 +52,13 @@ A static prototype site for the placeholder brand ZOJA, with two pages:
 
 - Home (`index.html`, `css/home.css`): a full-screen photo hero behind a see-through header, with "Coming soon" copy: the headline "Same face. Every campaign.", a one-line pitch, the three things coming (AI influencers, campaign planning, AI photo studio), and an early-access mailto. On phones the list and links sit at the bottom, under the face. The hero uses the wide `assets/hero.webp`, with the text in the plain green band on its left. Phones get `assets/hero-portrait.webp` through `<picture>`, because the wide photo would crop through the face. Under 700px wide, the centre nav is hidden and a fixed 11px base size is used.
 - Runway (`runway/`): a luxury-fashion "runway" showcase, described below.
-- Nav (`css/nav.css`, `js/nav.js`): a floating glass pill. It has three links: Home, Marketplace (a `#` placeholder until that page exists) and Contact (`mailto:hello@zoja.ai`). From 900px wide the links sit in the bar. Under 900px it shrinks to logo, current page name and a menu button that opens a full-screen dark panel with numbered links. The desktop rule sits last in `nav.css` so it overrides the menu-button rules. The style is modelled on tribedesignworks.com's nav, rebuilt with our own content. It is in px, so it looks the same on every page. The logo is `assets/logo/zoja-ai-white.svg`, copied from `brand/logo/` at the repo root (the server only serves `web/`). Only the home page uses it so far; the runway page still has its own header.
+- Nav (`css/nav.css`, `js/nav.js`): a floating glass pill. It has three links: Home, Marketplace (a `#` placeholder until that page exists) and Contact (`mailto:hello@zoja.ai`). From 900px wide the links sit in the bar. Under 900px it shrinks to logo, current page name and a menu button that opens a full-screen dark panel with numbered links. The desktop rule sits last in `nav.css` so it overrides the menu-button rules. The style is modelled on tribedesignworks.com's nav, rebuilt with our own content. It is in px, so it looks the same on every page. The logo is `assets/logo/zoja-ai-white.svg`, copied from `brand/logo/` at the repo root (the server only serves `apps/web/`). Only the home page uses it so far; the runway page still has its own header. The master copy of the nav and the colour and font tokens is now `packages/ui/`: change them there first, then copy into this folder, until the site has a build step and imports the package.
 
 The runway: a queue of models recedes in depth. Every 2.6 s the front model steps forward and fades out, the rest move up one slot (growing, sharpening, losing their fade), a new model fades in at the back, and the LOOK number and three product cards swap with a stagger. It recreates three screenshots of another site, so it is for private use only, not for publishing.
 
 ## Deploy
 
-Vercel deploys this folder (project Root Directory `web`) to www.zoja.ai on every push to `main`. Vercel publishes every file in the folder, linked or not. `.vercelignore` keeps this file, `runway/`, `tools/` and the uv files off the site. Add any new private file there, and check with `curl -I https://www.zoja.ai/<path>` that it returns 404.
+Vercel deploys this folder (project Root Directory `apps/web`) to www.zoja.ai on every push to `main`. Vercel publishes every file in the folder, linked or not. `.vercelignore` keeps this file, `runway/`, `tools/` and the uv files off the site. Add any new private file there, and check with `curl -I https://www.zoja.ai/<path>` that it returns 404.
 
 ## Run
 
@@ -68,11 +68,11 @@ Open `index.html` directly in a browser (it works over `file://`), or serve it:
 uv run tools/serve.py
 ```
 
-Then go to http://localhost:8765 (home) or http://localhost:8765/runway/. The server serves the whole `web/` folder. Use `tools/serve.py` instead of `python -m http.server`: the stdlib server's listen queue of 5 resets some of the ~15 parallel image requests on a cold load, and the stage then stays blank.
+Then go to http://localhost:8765 (home) or http://localhost:8765/runway/. The server serves the whole `apps/web/` folder. Use `tools/serve.py` instead of `python -m http.server`: the stdlib server's listen queue of 5 resets some of the ~15 parallel image requests on a cold load, and the stage then stays blank.
 
 ## Runway layout
 
-All paths below are inside `runway/`, except `tools/`, which sits at the `web/` root.
+All paths below are inside `runway/`, except `tools/`, which sits at the `apps/web/` root.
 
 - `index.html`: markup, plus a `<template>` for the product cards.
 - `css/style.css`: all styling. Sizes are in rem, where 1rem is 16px on a 2000px-wide window, so the page scales with the window like the reference. Queue slots are the `.model[data-slot=…]` rules: `--x`/`--y` place the feet (as % of the stage), `--s` is the scale, plus `--blur`, `--o` (opacity) and `--delay` (the stagger).

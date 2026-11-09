@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZOJA UI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="nav/nav.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 112px 24px 64px; background: var(--sage); color: var(--ink); font-family: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    main { max-width: 960px; margin: 0 auto; }
+    h2 { margin: 56px 0 16px; font: 400 11px/1 var(--display); letter-spacing: 0.24em; text-transform: uppercase; }
+    .swatches { display: flex; flex-wrap: wrap; gap: 16px; }
+    .swatch { width: 140px; font-size: 13px; }
+    .swatch div { height: 72px; margin-bottom: 8px; border: 1px solid rgba(35, 37, 43, 0.2); border-radius: 8px; }
+    .type p { margin: 0 0 20px; }
+    .type small { display: block; margin-bottom: 4px; font: 400 12px/1 var(--text); opacity: 0.6; }
+    .logos { display: flex; flex-wrap: wrap; gap: 16px; }
+    .logos div { display: grid; place-items: center; width: 220px; height: 96px; border-radius: 8px; }
+    .logos img { height: 28px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="preview.html"><img src="logo/zoja-ai-white.svg" alt="zoja.ai"></a>
+      <p class="nav__here">UI</p>
+      <nav class="nav__links" aria-label="Main">
+        <a href="preview.html" aria-current="page">Home</a>
+        <a href="#">Marketplace</a>
+        <a href="mailto:hello@zoja.ai">Contact</a>
+      </nav>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+    </div>
+    <div class="nav__panel" id="nav-panel">
+      <nav aria-label="Menu">
+        <ul class="nav__panel-list">
+          <li class="nav__panel-item" style="--i: 0"><a class="nav__panel-link" href="preview.html" aria-current="page"><span class="nav__panel-index">1</span>Home</a></li>
+          <li class="nav__panel-item" style="--i: 1"><a class="nav__panel-link" href="#"><span class="nav__panel-index">2</span>Marketplace</a></li>
+          <li class="nav__panel-item" style="--i: 2"><a class="nav__panel-link" href="mailto:hello@zoja.ai"><span class="nav__panel-index">3</span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2>Colour</h2>
+    <div class="swatches">
+      <div class="swatch"><div style="background: var(--ink)"></div>--ink #23252b</div>
+      <div class="swatch"><div style="background: var(--sage)"></div>--sage #a2af9b</div>
+      <div class="swatch"><div style="background: var(--white)"></div>--white #fff</div>
+      <div class="swatch"><div style="background: var(--night)"></div>--night #0a0a0a</div>
+    </div>
+
+    <h2>Type</h2>
+    <div class="type">
+      <p style="font: 400 clamp(28px, 6vw, 44px)/1.15 var(--display); letter-spacing: 0.08em; text-transform: uppercase"><small>--display · Michroma 400</small>Same face. Każda kampania.</p>
+      <p style="font: 400 18px/1.5 var(--text)"><small>--text · Inter 400</small>The studio for AI influencers that stay themselves. Zażółć gęślą jaźń.</p>
+      <p style="font: 700 18px/1.5 var(--text)"><small>--text · Inter 700</small>The studio for AI influencers that stay themselves. Zażółć gęślą jaźń.</p>
+      <p style="font: 500 15px/1.5 var(--ui); letter-spacing: 0.08em; text-transform: uppercase"><small>--ui · Space Grotesk 500</small>Home · Marketplace · Contact · Łódź</p>
+    </div>
+
+    <h2>Logo</h2>
+    <div class="logos">
+      <div style="background: var(--white)"><img src="logo/zoja-ai.svg" alt="zoja.ai, dark"></div>
+      <div style="background: var(--ink)"><img src="logo/zoja-ai-white.svg" alt="zoja.ai, white"></div>
+    </div>
+
+    <h2>Nav</h2>
+    <p>The glass pill at the top of this page. Narrow the window below 900px to see the menu button.</p>
+  </main>
+
+  <script src="nav/nav.js"></script>
+</body>
+</html>

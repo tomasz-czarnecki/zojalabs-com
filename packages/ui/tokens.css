@@ -1,0 +1,17 @@
+/* ZOJA design tokens: the colours, fonts and motion every app shares.
+   Load fonts.css too, so the font names below use our own font files. */
+:root {
+  /* Colour */
+  --ink: #23252b;    /* text on light backgrounds */
+  --sage: #a2af9b;   /* page background, the green of the hero wall */
+  --white: #fff;     /* text on photos and dark glass */
+  --night: #0a0a0a;  /* full-screen menu panel */
+
+  /* Type */
+  --display: "Michroma", "Eurostile", "Arial Black", sans-serif;  /* headlines, labels, links */
+  --text: "Inter", "Helvetica Neue", Arial, sans-serif;           /* body copy */
+  --ui: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;     /* nav and app controls */
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
