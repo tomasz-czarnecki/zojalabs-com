@@ -1,4 +1,6 @@
-/* Floating glass pill nav with a full-screen menu panel. Sizes in px so it stays the same on every page. */
+/* Floating glass pill nav. Sizes in px so it stays the same on every page.
+   Under 900px: logo, current page and a menu button that opens a full-screen panel.
+   From 900px: a wider pill with every page and the utilities laid out, and no panel. */
 :root {
   --nav-font: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --nav-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -58,6 +60,53 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* Desktop links and utilities, hidden until 900px */
+
+.nav__links,
+.nav__utils {
+  display: none;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav__links { gap: 28px; }
+
+.nav__utils {
+  justify-self: end;
+  gap: 20px;
+}
+
+.nav__links a,
+.nav__utils a {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.35s var(--nav-ease);
+}
+
+.nav__links a:hover,
+.nav__utils a:hover,
+.nav__links a[aria-current="page"] { color: #fff; }
+
+.nav__links a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+.nav__utils svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+/* Menu button (under 900px) */
 
 .nav__toggle {
   justify-self: end;
@@ -180,4 +229,19 @@
     justify-content: flex-start;
     gap: 16px 24px;
   }
+}
+
+/* Desktop: the wide pill. Kept last so it overrides the menu-button rules above. */
+@media (min-width: 900px) {
+  .nav__bar {
+    width: min(880px, 100%);
+    padding: 0 22px;
+  }
+
+  .nav__here,
+  .nav__toggle,
+  .nav__panel { display: none; }
+
+  .nav__links,
+  .nav__utils { display: flex; }
 }
