@@ -7,24 +7,36 @@
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Michroma&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Michroma&family=Space+Grotesk:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Zoja</a>
-    <nav class="main-nav">
-      <a href="runway/index.html">Runway</a>
-      <a href="#">The House</a>
-      <a href="#">Lookbook</a>
-      <a href="#">Shop</a>
-    </nav>
-    <div class="utils">
-      <a href="#">Login</a>
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
-      <svg class="icon" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
-      <svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <a href="#">Cart (0)</a>
+  <header class="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="index.html">Zoja</a>
+      <p class="nav__here">Home</p>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+    </div>
+    <div class="nav__panel" id="nav-panel">
+      <nav aria-label="Main">
+        <ul class="nav__panel-list">
+          <li class="nav__panel-item" style="--i: 0"><a class="nav__panel-link" href="index.html" aria-current="page"><span class="nav__panel-index">1</span>Home</a></li>
+          <li class="nav__panel-item" style="--i: 1"><a class="nav__panel-link" href="runway/index.html"><span class="nav__panel-index">2</span>Runway</a></li>
+          <li class="nav__panel-item" style="--i: 2"><a class="nav__panel-link" href="#"><span class="nav__panel-index">3</span>The House</a></li>
+          <li class="nav__panel-item" style="--i: 3"><a class="nav__panel-link" href="#"><span class="nav__panel-index">4</span>Lookbook</a></li>
+          <li class="nav__panel-item" style="--i: 4"><a class="nav__panel-link" href="#"><span class="nav__panel-index">5</span>Shop</a></li>
+        </ul>
+      </nav>
+      <div class="nav__panel-utils" style="--i: 5">
+        <a href="#">Login</a>
+        <a href="#">Search</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Cart (0)</a>
+      </div>
     </div>
   </header>
 
@@ -42,5 +54,7 @@
       </div>
     </div>
   </main>
+
+  <script src="js/nav.js"></script>
 </body>
 </html>
