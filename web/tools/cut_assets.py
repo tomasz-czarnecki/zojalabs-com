@@ -1,7 +1,7 @@
 """Cut runway figures and product images out of the reference screenshots.
 
 Run: uv run tools/cut_assets.py
-Writes transparent WebP cut-outs to assets/figures/ and assets/products/.
+Writes transparent WebP cut-outs to runway/assets/figures/ and runway/assets/products/.
 Figures use the human-segmentation model (the general model leaks background
 into the blurred figures); products use the general model.
 """
@@ -12,7 +12,7 @@ from PIL import Image, ImageFilter
 from rembg import new_session, remove
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = ROOT / "assets" / "source"
+SOURCE = ROOT / "runway" / "assets" / "source"
 FRONT_HEIGHT = 815  # px height of the front-row figures in the screenshots
 STAGE_COLOUR = (242, 246, 252)
 
@@ -86,7 +86,7 @@ def main() -> None:
         ("products", PRODUCTS, new_session("isnet-general-use"), 0),
     )
     for folder, items, session, erode in jobs:
-        out_dir = ROOT / "assets" / folder
+        out_dir = ROOT / "runway" / "assets" / folder
         out_dir.mkdir(parents=True, exist_ok=True)
         for name, (src, box) in items.items():
             img = cut(sources[src], box, session, erode)

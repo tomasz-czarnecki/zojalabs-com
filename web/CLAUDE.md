@@ -1,6 +1,11 @@
-# Runway showcase
+# ZOJA web
 
-A visual prototype of a luxury-fashion "runway" hero for the placeholder brand ZOJA. A queue of models recedes in depth. Every 2.6 s the front model steps forward and fades out, the rest move up one slot (growing, sharpening, losing their fade), a new model fades in at the back, and the LOOK number and three product cards swap with a stagger. It recreates three screenshots of another site, so it is for private use only, not for publishing.
+A static prototype site for the placeholder brand ZOJA, with two pages:
+
+- Home (`index.html`, `css/home.css`): a full-screen photo hero behind a see-through header, the season headline and links to the runway. The hero uses the wide `assets/hero.webp`, with the text in the plain green band on its left. Phones get `assets/hero-portrait.webp` through `<picture>`, because the wide photo would crop through the face. Under 700px wide, the centre nav is hidden and a fixed 11px base size is used.
+- Runway (`runway/`): a luxury-fashion "runway" showcase, described below.
+
+The runway: a queue of models recedes in depth. Every 2.6 s the front model steps forward and fades out, the rest move up one slot (growing, sharpening, losing their fade), a new model fades in at the back, and the LOOK number and three product cards swap with a stagger. It recreates three screenshots of another site, so it is for private use only, not for publishing.
 
 ## Run
 
@@ -10,9 +15,11 @@ Open `index.html` directly in a browser (it works over `file://`), or serve it:
 uv run tools/serve.py
 ```
 
-Then go to http://localhost:8765. Use `tools/serve.py` instead of `python -m http.server`: the stdlib server's listen queue of 5 resets some of the ~15 parallel image requests on a cold load, and the stage then stays blank.
+Then go to http://localhost:8765 (home) or http://localhost:8765/runway/. The server serves the whole `web/` folder. Use `tools/serve.py` instead of `python -m http.server`: the stdlib server's listen queue of 5 resets some of the ~15 parallel image requests on a cold load, and the stage then stays blank.
 
-## Layout
+## Runway layout
+
+All paths below are inside `runway/`, except `tools/`, which sits at the `web/` root.
 
 - `index.html`: markup, plus a `<template>` for the product cards.
 - `css/style.css`: all styling. Sizes are in rem, where 1rem is 16px on a 2000px-wide window, so the page scales with the window like the reference. Queue slots are the `.model[data-slot=…]` rules: `--x`/`--y` place the feet (as % of the stage), `--s` is the scale, plus `--blur`, `--o` (opacity) and `--delay` (the stagger).
@@ -20,7 +27,7 @@ Then go to http://localhost:8765. Use `tools/serve.py` instead of `python -m htt
 - `js/runway.js`: builds the queue and cards, then `advance()` moves every model one slot with CSS transitions and swaps the details with the Web Animations API.
 - `assets/source/`: the three reference screenshots (2000×1125).
 - `assets/figures/`, `assets/products/`: transparent WebP cut-outs made from the screenshots.
-- `tools/cut_assets.py`: regenerates every cut-out: `uv run tools/cut_assets.py`.
+- `tools/cut_assets.py`: regenerates every cut-out into `runway/assets/`: `uv run tools/cut_assets.py`.
 
 ## How the assets are cut
 

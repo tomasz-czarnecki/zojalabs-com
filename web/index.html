@@ -3,32 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ZOJA · Runway</title>
+  <title>ZOJA</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Michroma&display=swap">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#">Zoja</a>
-    <div class="navs">
-      <nav class="main-nav">
-        <a class="active" href="#">Runway</a>
-        <a href="#">The House</a>
-        <a href="#">Lookbook</a>
-        <a href="#">Shop</a>
-      </nav>
-      <nav class="sub-nav">
-        <a href="#">Collections</a>
-        <a href="#">Clothing</a>
-        <a href="#">Lookbook</a>
-        <a href="#">Beauty</a>
-        <a href="#">Accessories</a>
-        <a href="#">Our World</a>
-      </nav>
-    </div>
+    <a class="brand" href="index.html">Zoja</a>
+    <nav class="main-nav">
+      <a href="runway/index.html">Runway</a>
+      <a href="#">The House</a>
+      <a href="#">Lookbook</a>
+      <a href="#">Shop</a>
+    </nav>
     <div class="utils">
       <a href="#">Login</a>
       <svg class="icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
@@ -39,33 +29,18 @@
   </header>
 
   <main class="hero">
-    <section class="stage">
-      <div class="intro">
-        <h1>Spring Summer 2027</h1>
-        <p>A study in softness and strength. The new season from Zoja pairs delicate textures with modern silhouettes, made for a more beautiful tomorrow.</p>
+    <picture>
+      <source media="(max-width: 700px)" srcset="assets/hero-portrait.webp">
+      <img class="hero-image" src="assets/hero.webp" alt="Model with freckles holding a peach dahlia against a sage wall">
+    </picture>
+    <div class="hero-copy">
+      <p class="eyebrow">Spring Summer 2027</p>
+      <h1>In full<br>bloom</h1>
+      <div class="ctas">
+        <a class="cta" href="runway/index.html">Discover the runway</a>
+        <a class="cta" href="#">Shop the collection</a>
       </div>
-      <div class="queue" id="queue"></div>
-      <div class="look-label">
-        <h2>Look <span class="look-number" id="look-number"></span></h2>
-        <a class="shop-link" href="#">Shop the look</a>
-      </div>
-    </section>
-    <aside class="products" id="products"></aside>
+    </div>
   </main>
-
-  <template id="card-template">
-    <article class="card">
-      <svg class="icon heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
-      <div class="card-body">
-        <img class="card-image" alt="">
-        <h3 class="card-name"></h3>
-        <p class="card-price"></p>
-      </div>
-      <svg class="icon plus" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
-    </article>
-  </template>
-
-  <script src="js/looks.js"></script>
-  <script src="js/runway.js"></script>
 </body>
 </html>
