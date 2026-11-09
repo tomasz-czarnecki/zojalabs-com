@@ -1,0 +1,17 @@
+/* Studio theme for React Flow. Loaded after React Flow's own stylesheet so these win. */
+.react-flow {
+  --xy-background-color: #fafafa;
+  --xy-background-pattern-dots-color: #d4d4d8;
+  --xy-edge-stroke: #3b82f6;
+  --xy-edge-stroke-selected: #2563eb;
+  --xy-edge-stroke-width: 2;
+  --xy-connectionline-stroke: #3b82f6;
+  --xy-handle-background-color: #3b82f6;
+  --xy-handle-border-color: #fff;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-width: 2px;
+}

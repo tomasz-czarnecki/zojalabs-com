@@ -1,0 +1,11 @@
+{
+  "name": "zoja-ai",
+  "private": true,
+  "workspaces": [
+    "apps/studio",
+    "packages/ui"
+  ],
+  "scripts": {
+    "dev:studio": "npm run dev --workspace @zoja/studio"
+  }
+}

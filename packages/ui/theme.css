@@ -1,0 +1,14 @@
+/* Tailwind v4 theme for apps that use Tailwind. It maps tokens.css onto Tailwind's names,
+   so classes like bg-sage, text-ink, font-display and ease-zoja work.
+   Import it from the app's Tailwind CSS file, and load tokens.css and fonts.css too. */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-night: var(--night);
+
+  --font-display: var(--display);
+  --font-sans: var(--text);
+  --font-ui: var(--ui);
+
+  --ease-zoja: var(--ease);
+}

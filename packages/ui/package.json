@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "description": "ZOJA design system: tokens, fonts, logos and shared components.",
-  "files": ["tokens.css", "fonts.css", "fonts", "logo", "nav"],
+  "files": [
+    "tokens.css",
+    "fonts.css",
+    "theme.css",
+    "fonts",
+    "logo",
+    "nav"
+  ],
   "exports": {
     "./tokens.css": "./tokens.css",
     "./fonts.css": "./fonts.css",
+    "./theme.css": "./theme.css",
     "./nav.css": "./nav/nav.css",
     "./nav.js": "./nav/nav.js",
     "./logo/*": "./logo/*"

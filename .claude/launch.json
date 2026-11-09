@@ -9,8 +9,8 @@
     },
     {
       "name": "studio",
-      "runtimeExecutable": "uv",
-      "runtimeArgs": ["run", "python", "-m", "http.server", "8766", "--directory", "apps/studio"],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--workspace", "@zoja/studio"],
       "port": 8766
     },
     {
