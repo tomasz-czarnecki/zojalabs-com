@@ -1,8 +1,10 @@
-# zoja-ai
+# zojalabs-com
+
+GitHub: https://github.com/tomasz-czarnecki/zojalabs-com (branch `main`). Moved here from the old `zoja-ai` repo on Nov 20 2026; the local folder is still called `zoja-ai`.
 
 A monorepo: apps that deploy on their own sit in `apps/`, code they share sits in `packages/`. Each app is a separate Vercel project connected to this repo, with its own Root Directory and domain.
 
-- `apps/web/`: the public website, www.zoja.ai (Vercel Root Directory `apps/web`). Static pages. See `apps/web/CLAUDE.md`, which also holds the product direction.
+- `apps/web/`: the public website, www.zojalabs.com (Vercel project `zojalabs-com`, Root Directory `apps/web`). Static pages. See `apps/web/CLAUDE.md`, which also holds the product direction.
 - `apps/studio/`: the studio web app, app.zoja.ai (Vercel Root Directory `apps/studio`, not online yet). Next.js + Tailwind. See `apps/studio/CLAUDE.md`.
 - `packages/ui/`: the shared design system (tokens, self-hosted fonts, logos, nav). Not deployed by itself; apps bundle it once they have a build step. See `packages/ui/CLAUDE.md`.
 - `brand/`: logo source files. Copy a logo into an app's own `assets/`, because each Vercel project publishes only its own folder.

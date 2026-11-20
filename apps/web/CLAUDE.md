@@ -58,7 +58,7 @@ The runway: a queue of models recedes in depth. Every 2.6 s the front model step
 
 ## Deploy
 
-Vercel deploys this folder (project Root Directory `apps/web`) to www.zoja.ai on every push to `main`. Vercel publishes every file in the folder, linked or not. `.vercelignore` keeps this file, `runway/`, `tools/` and the uv files off the site. Add any new private file there, and check with `curl -I https://www.zoja.ai/<path>` that it returns 404.
+Vercel project `zojalabs-com` deploys this folder (Root Directory `apps/web`) to www.zojalabs.com on every push to `main` of the `zojalabs-com` repo. Vercel publishes every file in the folder, linked or not. `.vercelignore` keeps this file, `runway/`, `tools/` and the uv files off the site. Add any new private file there, and check in a browser that `https://www.zojalabs.com/<path>` returns 404 (Vercel's firewall may answer plain `curl` with a 403 challenge page instead).
 
 ## Run
 
