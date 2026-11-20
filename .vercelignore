@@ -1,0 +1,16 @@
+# Safety net for a Vercel project that deploys the repo root by mistake.
+# Sites deploy from their own folder (Root Directory apps/web or apps/studio) and use that folder's .vercelignore.
+.vercelignore
+.claude/
+CLAUDE.md
+package.json
+package-lock.json
+brand/
+packages/
+apps/studio/
+apps/web/CLAUDE.md
+apps/web/.vercelignore
+apps/web/runway/
+apps/web/tools/
+apps/web/pyproject.toml
+apps/web/uv.lock
