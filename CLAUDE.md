@@ -1,6 +1,6 @@
 # zojalabs-com
 
-GitHub: https://github.com/tomasz-czarnecki/zojalabs-com (branch `main`). Moved here from the old `zoja-ai` repo on Nov 20 2026; the local folder is still called `zoja-ai`.
+GitHub: https://github.com/tomasz-czarnecki/zojalabs-com (branch `main`). Moved here from the old `zoja-ai` repo on Nov 20 2026; the local folder was renamed from `zoja-ai` to `zojalabs-com` the same day.
 
 A monorepo: apps that deploy on their own sit in `apps/`, code they share sits in `packages/`. Each app is a separate Vercel project connected to this repo, with its own Root Directory and domain.
 
